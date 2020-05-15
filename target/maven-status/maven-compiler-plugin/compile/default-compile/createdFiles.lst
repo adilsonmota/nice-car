@@ -1,0 +1,13 @@
+control\AccessBookBean.class
+dao\BookDAO.class
+util\JpaUtil.class
+dao\AuthorDAO.class
+entities\Book.class
+control\LoginBean.class
+dao\BookDAOImpl.class
+entities\Author.class
+exceptions\DomainException.class
+dao\AuthorDAOImpl.class
+dao\UserDAO.class
+entities\User.class
+dao\UserDAOImpl.class
