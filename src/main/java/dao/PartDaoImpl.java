@@ -30,6 +30,9 @@ public class PartDaoImpl implements PartDao {
 			ps.setDouble(3, part.getPrice());
 			ps.setDate(4, (Date) part.getReplacedDate());
 			ps.setString(5, part.getVehicle().getLicense());
+			
+			ps.execute();
+			ps.close();
 		}
 		catch (SQLException e) {
 			e.printStackTrace();

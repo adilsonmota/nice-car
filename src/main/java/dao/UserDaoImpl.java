@@ -10,7 +10,7 @@ import java.util.List;
 import entities.User;
 import util.JpaUtil;
 
-public class UserIDaoImpl implements UserDao {
+public class UserDaoImpl implements UserDao {
 
 	public void insert(User user) {
 		
@@ -27,6 +27,9 @@ public class UserIDaoImpl implements UserDao {
 			ps.setString(2, user.getPassword());
 			ps.setString(3, user.getName());
 			ps.setString(4, user.getCpf());
+			
+			ps.execute();
+			ps.close();
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
@@ -35,7 +38,7 @@ public class UserIDaoImpl implements UserDao {
 
 	public void update(User user) {
 		
-		String sql = "UPDATE TB_USER SET NAME = ?, SENHA = ? WHERE CPF = ?";
+		String sql = "UPDATE TB_USER SET NAME = ?, PASSWORD = ? WHERE CPF = ?";
 		
 		Connection conn;
 		
@@ -80,7 +83,7 @@ public class UserIDaoImpl implements UserDao {
 
 	public User findAuser(String cpf) {
 		
-		String sql = "SELECT U.CPF, U.NAME, U.EMAIL, U.SENHA FROM TB_USER U WHERE CPF = ?";
+		String sql = "SELECT U.CPF, U.NAME, U.EMAIL, U.PASSWORD FROM TB_USER U WHERE CPF = ?";
 		
 		User user = null;
 		
@@ -100,7 +103,7 @@ public class UserIDaoImpl implements UserDao {
 				
 				user.setCpf(rs.getString("CPF"));
 				user.setName(rs.getString("NAME"));
-				user.setPassword(rs.getString("EMAIL"));
+				user.setEmail(rs.getString("EMAIL"));
 				user.setPassword(rs.getString("PASSWORD"));
 			}
 			ps.close();
@@ -113,7 +116,7 @@ public class UserIDaoImpl implements UserDao {
 
 	public List<User> findAll() {
 		
-		String sql = "SELECT U.CPF, U.NAME, U.SENHA FROM TB_USER U";
+		String sql = "SELECT U.CPF, U.NAME, U.EMAIL, U.PASSWORD FROM TB_USER U";
 		
 		List<User> listUsers = new ArrayList<User>();
 		
@@ -130,8 +133,9 @@ public class UserIDaoImpl implements UserDao {
 				User user = new User();
 				
 				user.setCpf(rs.getString("CPF"));
+				user.setName(rs.getString("NAME"));
 				user.setEmail(rs.getString("EMAIL"));
-				user.setName(rs.getString("SENHA"));
+				user.setPassword(rs.getString("PASSWORD"));
 				
 				listUsers.add(user);
 			}

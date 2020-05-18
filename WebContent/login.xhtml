@@ -9,15 +9,17 @@
  	<title>Login do Usuário</title>
  
 		<p:dialog header="Acesso" modal="false" height="180" width="220" visible="true">
- 			<h:form>    
+ 			<h:form> 
+ 				<p:growl id="growl" showDetail="true" sticky="true" />
+ 			   
 				<h:panelGrid columns="1" cellpadding="2">
 	                <p:outputLabel value="Email:"/>
-	                <p:inputText value="" size="20" required="true"/>
+	                	<p:inputText value="#{LoginBean.usrLogin}" size="20" required="true"/>
 	                <p:outputLabel value=" Senha:"/>
-	 				<p:password id="psw"  label="Password" required="true" size="20"/> 
+	 					<p:password value="#{LoginBean.pswLogin}" id="psw" label="Password" required="true" size="20"/> 
 	 			</h:panelGrid>	
         		<h:panelGrid columns="2" cellpadding="1">	
-        			<p:commandButton value="Ok" update="@form" />
+        			<p:commandButton value="Ok" update="@form" action="#{LoginBean.login}"/>
          			<p:commandButton value="Cancelar" type="reset"/>
        			</h:panelGrid>
    			 </h:form>

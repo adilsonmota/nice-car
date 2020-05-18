@@ -28,6 +28,9 @@ public class VehicleDaoImpl implements VehicleDao {
 			ps.setString(2, vehicle.getBrand());
 			ps.setString(3, vehicle.getModelName());
 			ps.setString(4, vehicle.getNickname());
+			
+			ps.execute();
+			ps.close();
 		}
 		catch (SQLException e) {
 			e.printStackTrace();

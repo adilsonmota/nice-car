@@ -1,5 +1,6 @@
 package entities;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -11,7 +12,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="TB_USER")
-public class User {
+public class User implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@Column(name="CPF", nullable = false)
@@ -25,7 +27,7 @@ public class User {
 	
 	@Column(name="NAME")
 	private String name;
-	
+
 	@OneToMany(mappedBy="owner", cascade = CascadeType.ALL)
 	private List<Vehicle> vehicles;
 

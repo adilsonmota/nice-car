@@ -1,5 +1,6 @@
-package control;
+package service;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,9 +10,10 @@ import javax.faces.bean.RequestScoped;
 @ManagedBean(name="ImagesView")
 @RequestScoped
 
-public class ImagesView {
-     
-    private List<String> images;
+public class ImagesView implements Serializable {
+	private static final long serialVersionUID = 1L;
+	
+	private List<String> images;
      
     public ImagesView(){
         images = new ArrayList<String>();

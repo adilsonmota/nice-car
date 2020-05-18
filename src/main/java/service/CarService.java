@@ -1,4 +1,4 @@
-package control;
+package service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -46,7 +46,7 @@ public class CarService {
     public List<Vehicle> createCars(int size) {
         List<Vehicle> list = new ArrayList<Vehicle>();
         for(int i = 0 ; i < size ; i++) {
-            list.add(new Vehicle(getr));
+            //list.add(new Vehicle(getr));
 //        	list.add(new Car(getRandomId(), getRandomBrand(), getRandomYear(), getRandomColor(), getRandomPrice(), getRandomSoldState()));
         }
          

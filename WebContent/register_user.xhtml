@@ -7,32 +7,30 @@
 
 	<ui:define name="corpo"> 
  <title>Cadastrar Usuário</title>
- <h:form>    
+ <h:form>
+ 	<p:growl id="growl" showDetail="true" sticky="true" />    
 	<h2>Novo Usuário</h2>
      <p:tabView>
         <p:tab title="Formulário">
      <p:separator/>
              <h:panelGrid columns="2" cellpadding="3">
 	                <p:outputLabel value="Nome:"/>
-	                <p:inputText value="" size="55" placeholder="Ex: Steve Jobs" required="true"/>
+	                	<p:inputText value="#{RegisterUserBean.newUser.name}" size="55" placeholder="Ex: Steve Jobs" required="true"/>
 	                <p:outputLabel value="CPF:"/>
-	                <p:inputMask mask="999.999.999-99" placeholder="Ex: 123.456.789-00 " size="55" required="true"/>
+	                	<p:inputMask value="#{RegisterUserBean.newUser.cpf}" mask="999.999.999-99" placeholder="Ex: 123.456.789-00 " size="55" required="true"/>
 	                <p:outputLabel value="Email: (username)"/>
-	                <p:inputText value="" size="55" placeholder="Ex: email@dominio.com" required="true"/>
+	                	<p:inputText value="#{RegisterUserBean.newUser.email}" size="55" placeholder="Ex: email@dominio.com" required="true"/>
 	                <p:outputLabel value=" Senha:"/>
-             		<p:password id="psw1" match="psw2" label="Password 1" required="true" feedback="true" size="55"/>
+             		<p:password id="psw1" match="psw2" required="true" feedback="true" size="55"/>
              		<p:outputLabel value=" Confirma senha:"/>
-	 				<p:password id="psw2"  label="Password 2" required="true" feedback="false" size="55"/> 
+	 					<p:password value="#{RegisterUserBean.newUser.password}" id="psw2"  required="true" feedback="false" size="55"/> 
 	            </h:panelGrid>   
       <p:separator/>
 	            
         </p:tab>
     </p:tabView>
-    </h:form>
-    
-     <h:form>
        <p:panelGrid  style="border:0px">
-         <p:commandButton value="Salvar" update="@form" actionListener="#{LoginBean.registerUser}"/>
+         <p:commandButton value="Salvar" update="@form" action="#{RegisterUserBean.registerUser}" />
          <p:commandButton value="Cancelar" type="reset"/>
        </p:panelGrid>	
     </h:form>
