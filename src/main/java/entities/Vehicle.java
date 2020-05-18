@@ -83,4 +83,14 @@ public class Vehicle {
 		this.nickname = nickname;
 	}
 	
+	public Double totalPaid() {
+		Double tot = 0.0;
+		
+		for (Part part : parts) {
+			tot += part.getPrice();
+		}
+		
+		return tot;
+	}
+	
 }

@@ -1,0 +1,30 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/template_login.xhtml">
+
+	<ui:define name="corpo">
+
+			
+
+		<h1>Bem Vindo</h1>
+		<p/>
+			<p/>
+			<p/>
+			<p/>
+		<h:panelGrid columns="2" cellpadding="1">
+		<p:imageSwitch effect="fade" id="fadeEffect" >
+			<ui:repeat value="#{ImagesView.images}" var="image"
+				id="fadeEffectImages">
+				<p:graphicImage name="images/autos/#{image}" library="adamantium-layout" id="image" />
+			</ui:repeat>
+		</p:imageSwitch>
+		<h3>Registre seus gastos com cada veículo</h3>
+		<p/>
+		<h3>Tenha o balanço sempre a mão</h3>
+		</h:panelGrid>
+	</ui:define>
+
+</ui:composition>
