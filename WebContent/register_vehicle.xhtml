@@ -1,0 +1,38 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+	<ui:define name="corpo"> 
+ <title>Cadastrar Veículo</title>
+ <h:form>    
+	<h2>Novo Veículo</h2>
+     <p:tabView>
+        <p:tab title="Formulário">
+     <p:separator/>
+             <h:panelGrid columns="2" cellpadding="3">
+	                <p:outputLabel value="Marca:"/>
+	                <p:inputText value="" size="55" placeholder="Ex: Ford" required="true"/>
+	                <p:outputLabel value="Modelo:"/>
+	                <p:inputText value="" size="55" placeholder="Ex: Mustang Shelby GT500" required="true"/>
+	                <p:outputLabel value="Placa do veículo:"/>
+	                <p:inputMask value="" mask="aaa-9*99" size="55" placeholder="Ex: ABC-1B23" style="text-transform:uppercase"/>
+	                <p:outputLabel value="Apelido:"/>
+	                <p:inputText value="" size="55"/>
+	            </h:panelGrid>   
+      <p:separator/>
+	            
+        </p:tab>
+    </p:tabView>
+    </h:form>
+    
+     <h:form>
+       <p:panelGrid  style="border:0px">
+         <p:commandButton value="Salvar" update="@form" actionListener="#{LoginBean.registerUser}"/>
+         <p:commandButton value="Cancelar" type="reset"/>
+       </p:panelGrid>	
+    </h:form>
+	</ui:define>
+</ui:composition>

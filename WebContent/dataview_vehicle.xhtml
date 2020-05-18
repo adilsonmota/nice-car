@@ -1,0 +1,50 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+	<ui:define name="corpo"> 
+ <title>Despesas Veículo</title>
+ <h:form>    
+	<h2>Relatório</h2>
+     <p:tabView>
+        <p:tab title="Veículo">
+     
+			<p:separator/>
+		    <h:panelGrid columns="3" cellpadding="2">
+             		<p:outputLabel value="Buscar:"/>
+	            		<p:inputText value="" size="72" placeholder="digite algum dado do veículo" required="true"/>
+	            		<p:commandButton value="Ok" update="@form" actionListener="#{LoginBean.registerUser}"/>
+		    </h:panelGrid>
+			<p:separator/>
+     		<p/>
+	 <p:dataTable var="dataViewVehicle" value="#{dtBasicView.cars}">
+		<p:column headerText="Placa">
+        	<h:outputText value="#{Vehicle.license}" />
+    	</p:column>
+ 
+    	<p:column headerText="Marca">
+        	<h:outputText value="#{Vehicle.brand}" />
+    	</p:column>
+ 
+    	<p:column headerText="Modelo">
+        	<h:outputText value="#{Vehicle.modelName}" />
+    	</p:column>
+ 
+    	<p:column headerText="Apelido">
+        	<h:outputText value="#{Vehicle.nickname}" />
+    	</p:column>
+    	
+    	<p:column headerText="Total Gasto">
+        	<h:outputText value="#{Vehicle.totalPaid}" />
+    	</p:column>
+    	
+	</p:dataTable>   
+        </p:tab>
+    </p:tabView>
+    </h:form>
+    
+	</ui:define>
+</ui:composition>

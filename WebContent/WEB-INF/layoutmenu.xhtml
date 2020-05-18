@@ -7,14 +7,19 @@
 	
 		<h:form>
 			<p:panelMenu style="width:250px">
-				<p:submenu label="CADASTROS BÁSICOS">
-					<p:menuitem value="Cadastrar Cliente" icon="icon-users" action="cadastrarCliente.xhtml" />
-					<p:menuitem value="Cadastrar Usuário do Sistema" icon="icon-user" action="cadastrarUsuario.xhtml" />
+				<p:submenu label="Cadastrar">
+					<p:menuitem value="Veículo" icon="icon-users" action="register_vehicle.xhtml" />
+					<p:menuitem value="Peça" icon="icon-user" action="register_parts.xhtml" />
 				</p:submenu>
 				
-				<p:submenu label="SALA DE AULAS VIRTUAIS">
-					<p:menuitem value="Cadastrar Cliente" icon="icon-users" action="cadastrarCliente.xhtml" />
-					<p:menuitem value="Cadastrar Usuário do Sistema" icon="icon-user" action="cadastrarUsuario.xhtml" />
+				<p:submenu label="Buscar">
+					<p:menuitem value="Veículo" icon="icon-users" action="search_vehicle.xhtml" />
+					<p:menuitem value="Peça" icon="icon-user" action="search_part.xhtml" />
+				</p:submenu>
+				
+				<p:submenu label="Relatório">
+					<p:menuitem value="Por Veículo" icon="icon-users" action="dataview_vehicle.xhtml" />
+					<p:menuitem value="Por período" icon="icon-user" action="dataview_byTime.xhtml" />
 				</p:submenu>
 				
 			</p:panelMenu>	

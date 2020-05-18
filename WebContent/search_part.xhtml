@@ -1,0 +1,64 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+	<ui:define name="corpo"> 
+ <title>Alterar Peça</title>
+ <h:form>    
+	<h2>Buscar</h2>
+     <p:tabView>
+        <p:tab title="Peça">
+    <p:separator/>
+		    <h:panelGrid columns="3" cellpadding="2">
+             		<p:outputLabel value="Buscar:"/>
+	            		<p:inputText value="" size="72" placeholder="nome da peça" required="true"/>
+	            		<p:commandButton value="Ok" update="@form" actionListener="#{LoginBean.registerUser}"/>
+		    </h:panelGrid>
+	<p:separator/>
+     		<p/>
+             <h:panelGrid columns="4" cellpadding="3">
+	                <p:outputLabel value="Nome:" />
+	                	<p:inputText value="" size="30" readonly="true"/>
+	                	<p:outputLabel value="Placa do veículo:"/>
+	                	<p:inputMask value="" size="30" readonly="true"/>
+	                <p:outputLabel value="Preço R$:"/>
+	                	<p:inputNumber value="" size="30" readonly="true"/>
+	                <p:outputLabel value="Data da troca:"/>
+	                	<p:inputMask value="" size="30" readonly="true"/>
+	                
+	            </h:panelGrid>   
+      <p:separator/>
+      </p:tab>
+      
+      <p:tab title="Atualizar Dados">
+     	<p:separator/>
+             <h:panelGrid columns="2" cellpadding="3">
+	                <p:outputLabel value="Nome:"/>
+	                	<p:inputText value="" size="55" required="true"/>
+	                <p:outputLabel value="Preço R$:"/>
+	                	<p:inputNumber value="" size="55"/>
+	                <p:outputLabel value="Data da troca:"/>
+	                	<p:inputMask value="" size="55" mask="99/99/9999"/>
+	            </h:panelGrid>   
+
+		<p:panelGrid  style="border:0px">
+        	<p:commandButton value="Salvar" update="@form" actionListener="#{LoginBean.registerUser}"/>
+        	
+       	</p:panelGrid>
+       	<p:separator/>	
+		<h:panelGrid columns="1" cellpadding="2">
+			<p:outputLabel value="Deletar esta peça:" />
+        	<p:commandButton value="Excluir" update="@form" actionListener="#{LoginBean.registerUser}"/>
+
+		</h:panelGrid>
+      </p:tab>
+      
+    </p:tabView>
+    
+    </h:form>
+
+	</ui:define>
+</ui:composition>
