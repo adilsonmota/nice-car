@@ -15,20 +15,24 @@
 
              <h:panelGrid columns="2" cellpadding="3">
 	                <p:outputLabel value="Nome:"/>
-	                <p:inputText value="" size="55" placeholder="Ex: Bico Injetor" required="true"/>
+	                <p:inputText value="#{AccessBean.newPart.name}" size="55" placeholder="Ex: Bico Injetor" required="true"/>
 	                <p:outputLabel value="Preço R$:"/>
-	                <p:inputNumber value="" size="55"/>
+	                <p:inputNumber value="#{AccessBean.newPart.name}" size="55"/>
 	                <p:outputLabel value="Data da troca:"/>
-	                <p:inputMask value="" mask="99/99/9999" size="55" placeholder="Ex: 30/04/2020"/>
+	                <p:inputMask value="#{AccessBean.newPart.name}" mask="99/99/9999" size="55" placeholder="Ex: 30/04/2020"/>
 	                <p:outputLabel value="Placa do veículo:"/>
-	                <p:inputMask value="" mask="aaa-9*99" size="55" placeholder="Ex: ABC-1B23" style="text-transform:uppercase" required="true"/>
-	            </h:panelGrid>   
+	        
+	        <p:selectOneMenu value="#{AccessBean.newPart.vehicle.license}">
+				<f:selectItem itemLabel="Selecione..." itemValue="" />
+				<f:selectItems value="#{AccessBean.registeredVehicles}" var="placa"	itemLabel="#{vehicle.license}" itemValue="#{vehicle.license}" />
+			</p:selectOneMenu>
+			</h:panelGrid>   
       <p:separator/>
 	            
         </p:tab>
     </p:tabView>
        <p:panelGrid  style="border:0px">
-         <p:commandButton value="Salvar" update="@form" actionListener="#{LoginBean.registerUser}"/>
+         <p:commandButton value="Salvar" update="@form" actionListener="#{AccessBean.registerPart}"/>
          <p:commandButton value="Cancelar" type="reset"/>
        </p:panelGrid>	
     </h:form>

@@ -81,9 +81,9 @@ public class UserDaoImpl implements UserDao {
 		
 	}
 
-	public User findAuser(String cpf) {
+	public User findAuser(String email) {
 		
-		String sql = "SELECT U.CPF, U.NAME, U.EMAIL, U.PASSWORD FROM TB_USER U WHERE CPF = ?";
+		String sql = "SELECT U.CPF, U.NAME, U.EMAIL, U.PASSWORD FROM TB_USER U WHERE EMAIL = ?";
 		
 		User user = null;
 		
@@ -93,7 +93,7 @@ public class UserDaoImpl implements UserDao {
 			
 			PreparedStatement ps = conn.prepareStatement(sql);
 			
-			ps.setString(1, cpf);
+			ps.setString(1, email);
 			
 			ResultSet rs = ps.executeQuery();
 			

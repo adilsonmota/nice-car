@@ -2,15 +2,11 @@ C:\Users\adilson\SEFAZ-J2EE\TurmaSefaz2\src\main\java\entities\User.java
 C:\Users\adilson\SEFAZ-J2EE\TurmaSefaz2\src\main\java\entities\Vehicle.java
 C:\Users\adilson\SEFAZ-J2EE\TurmaSefaz2\src\main\java\dao\PartDao.java
 C:\Users\adilson\SEFAZ-J2EE\TurmaSefaz2\src\main\java\dao\UserDaoImpl.java
-C:\Users\adilson\SEFAZ-J2EE\TurmaSefaz2\src\main\java\control\LoginBean.java
-C:\Users\adilson\SEFAZ-J2EE\TurmaSefaz2\src\main\java\service\BasicView.java
-C:\Users\adilson\SEFAZ-J2EE\TurmaSefaz2\src\main\java\teste\TesteConexao.java
 C:\Users\adilson\SEFAZ-J2EE\TurmaSefaz2\src\main\java\dao\VehicleDao.java
 C:\Users\adilson\SEFAZ-J2EE\TurmaSefaz2\src\main\java\dao\VehicleDaoImpl.java
+C:\Users\adilson\SEFAZ-J2EE\TurmaSefaz2\src\main\java\control\AccessBean.java
 C:\Users\adilson\SEFAZ-J2EE\TurmaSefaz2\src\main\java\entities\Part.java
 C:\Users\adilson\SEFAZ-J2EE\TurmaSefaz2\src\main\java\service\GrowlViewBean.java
-C:\Users\adilson\SEFAZ-J2EE\TurmaSefaz2\src\main\java\service\CarService.java
-C:\Users\adilson\SEFAZ-J2EE\TurmaSefaz2\src\main\java\control\RegisterUserBean.java
 C:\Users\adilson\SEFAZ-J2EE\TurmaSefaz2\src\main\java\dao\UserDao.java
 C:\Users\adilson\SEFAZ-J2EE\TurmaSefaz2\src\main\java\util\JpaUtil.java
 C:\Users\adilson\SEFAZ-J2EE\TurmaSefaz2\src\main\java\service\ImagesView.java

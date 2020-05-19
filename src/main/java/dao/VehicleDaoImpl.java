@@ -15,7 +15,7 @@ public class VehicleDaoImpl implements VehicleDao {
 
 	public void insert(Vehicle vehicle) {
 		
-		String sql = "INSERT INTO TB_VEHICLE (LICENSE, BRAND, MODELNAME, NICKNAME) VALUES (?, ?, ?, ?)";
+		String sql = "INSERT INTO TB_VEHICLE (LICENSE, BRAND, MODELNAME, NICKNAME, CPF_USER) VALUES (?, ?, ?, ?, ?)";
 		
 		Connection conn;
 		
@@ -28,6 +28,7 @@ public class VehicleDaoImpl implements VehicleDao {
 			ps.setString(2, vehicle.getBrand());
 			ps.setString(3, vehicle.getModelName());
 			ps.setString(4, vehicle.getNickname());
+			ps.setString(5, vehicle.getOwner().getCpf());
 			
 			ps.execute();
 			ps.close();
@@ -139,7 +140,7 @@ public class VehicleDaoImpl implements VehicleDao {
 				vehicle.setBrand(rs.getString("BRAND"));
 				vehicle.setModelName(rs.getString("MODELNAME"));
 				vehicle.setModelName(rs.getString("NICKNAME"));
-				vehicle.setOwner((User) rs.getObject("CPF_USER"));	//verificar o êxito
+//				vehicle.setOwner((User) rs.getObject("CPF_USER"));	verificar o êxito
 				
 				listVehicles.add(vehicle);
 			}

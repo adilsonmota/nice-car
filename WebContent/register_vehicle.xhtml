@@ -14,20 +14,20 @@
      <p:separator/>
              <h:panelGrid columns="2" cellpadding="3">
 	                <p:outputLabel value="Marca:"/>
-	                <p:inputText value="" size="55" placeholder="Ex: Ford" required="true"/>
+	                	<p:inputText value="#{AccessBean.newVehicle.brand}" size="55" placeholder="Ex: Ford" required="true"/>
 	                <p:outputLabel value="Modelo:"/>
-	                <p:inputText value="" size="55" placeholder="Ex: Mustang Shelby GT500" required="true"/>
+	                	<p:inputText value="#{AccessBean.newVehicle.modelName}" size="55" placeholder="Ex: Mustang Shelby GT500" required="true"/>
 	                <p:outputLabel value="Placa do veículo:"/>
-	                <p:inputMask value="" mask="aaa-9*99" size="55" placeholder="Ex: ABC-1B23" style="text-transform:uppercase"/>
+	                	<p:inputMask value="#{AccessBean.newVehicle.license}" mask="aaa-9*99" size="55" placeholder="Ex: ABC-1B23" style="text-transform:uppercase"/>
 	                <p:outputLabel value="Apelido:"/>
-	                <p:inputText value="" size="55"/>
+	                	<p:inputText value="#{AccessBean.newVehicle.nickname}" size="55"/>
 	            </h:panelGrid>   
       <p:separator/>
 	            
         </p:tab>
     </p:tabView>
        <p:panelGrid  style="border:0px">
-         <p:commandButton value="Salvar" update="@form" actionListener="#{LoginBean.registerUser}"/>
+         <p:commandButton value="Salvar" update="@form" action="#{AccessBean.registerVehicle}"/>
          <p:commandButton value="Cancelar" type="reset"/>
        </p:panelGrid>	
     </h:form>
