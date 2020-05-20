@@ -1,6 +1,7 @@
 package entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -29,8 +30,14 @@ public class User implements Serializable {
 	private String name;
 
 	@OneToMany(mappedBy="owner", cascade = CascadeType.ALL)
-	private List<Vehicle> vehicles;
+	private List<Vehicle> vehicles = new ArrayList<Vehicle>();
 
+	
+	public void addVehicle(Vehicle vehicle) {
+		vehicles.add(vehicle);
+	}
+	
+	
 	public String getEmail() {
 		return email;
 	}
@@ -66,9 +73,9 @@ public class User implements Serializable {
 	public List<Vehicle> getVehicles() {
 		return vehicles;
 	}
-
+/*
 	public void setVehicles(List<Vehicle> vehicles) {
 		this.vehicles = vehicles;
 	}
-	
+*/	
 }

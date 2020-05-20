@@ -1,5 +1,7 @@
 package entities;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -13,7 +15,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="TB_VEHICLE")
-public class Vehicle {
+public class Vehicle implements Serializable{
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@Column(name="LICENSE_VEHICLE", nullable = false)
@@ -30,10 +33,15 @@ public class Vehicle {
 	private User owner;
 	
 	@OneToMany(mappedBy = "vehicle", cascade = CascadeType.ALL)
-	private List<Part> parts;
+	private List<Part> parts = new ArrayList<Part>();
 	
 	@Column(name="NICKNAME")
 	private String nickname;
+	
+	
+	public void addPart(Part part) {
+		parts.add(part);
+	}
 	
 	public String getBrand() {
 		return brand;

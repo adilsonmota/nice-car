@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import entities.User;
+import entities.Vehicle;
 import util.JpaUtil;
 
 public class UserDaoImpl implements UserDao {
@@ -83,11 +84,14 @@ public class UserDaoImpl implements UserDao {
 
 	public User findAuser(String email) {
 		
-		String sql = "SELECT U.CPF, U.NAME, U.EMAIL, U.PASSWORD FROM TB_USER U WHERE EMAIL = ?";
-		
-		User user = null;
+		String sql = "SELECT CPF, NAME, EMAIL, PASSWORD, LICENSE, BRAND, MODELNAME, NICKNAME FROM TB_USER U "
+					+ "LEFT JOIN TB_VEHICLE V ON (U.CPF = V.CPF_USER) WHERE EMAIL = ?";
 		
 		Connection conn;
+		
+		User obj = new User();
+		Vehicle vehicle = new Vehicle();
+		
 		try {
 			conn = JpaUtil.getConexao();
 			
@@ -99,19 +103,26 @@ public class UserDaoImpl implements UserDao {
 			
 			while (rs.next()) {
 				
-				user = new User();
+				obj.setCpf(rs.getString("CPF"));
+				obj.setName(rs.getString("NAME"));
+				obj.setEmail(rs.getString("EMAIL"));
+				obj.setPassword(rs.getString("PASSWORD"));
 				
-				user.setCpf(rs.getString("CPF"));
-				user.setName(rs.getString("NAME"));
-				user.setEmail(rs.getString("EMAIL"));
-				user.setPassword(rs.getString("PASSWORD"));
+				vehicle.setLicense(rs.getString("LICENSE"));
+				vehicle.setBrand(rs.getString("BRAND"));
+				vehicle.setModelName(rs.getString("MODELNAME"));
+				vehicle.setNickname(rs.getString("NICKNAME"));
+				
+				obj.addVehicle(vehicle);
+				vehicle = new Vehicle();
 			}
+			
 			ps.close();
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return user;
+		return obj;
 	}
 
 	public List<User> findAll() {

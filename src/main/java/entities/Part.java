@@ -1,5 +1,6 @@
 package entities;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -13,7 +14,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="TB_PART")
-public class Part {
+public class Part implements Serializable{
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@Column(name="ID", nullable = false)
@@ -73,5 +75,10 @@ public class Part {
 	public void setVehicle(Vehicle vehicle) {
 		this.vehicle = vehicle;
 	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
 	
 }

@@ -7,7 +7,8 @@
 
 	<ui:define name="corpo"> 
  <title>Cadastrar Peça</title>
- <h:form>    
+ <h:form>
+ 	<p:growl id="growl" showDetail="true" sticky="true" />    
 	<h2>Nova Peça</h2>
      <p:tabView>
         <p:tab title="Formulário">
@@ -15,24 +16,23 @@
 
              <h:panelGrid columns="2" cellpadding="3">
 	                <p:outputLabel value="Nome:"/>
-	                <p:inputText value="#{AccessBean.newPart.name}" size="55" placeholder="Ex: Bico Injetor" required="true"/>
+	                	<p:inputText value="#{PartBean.newPart.name}" size="55" placeholder="Ex: Bico Injetor" required="true"/>
 	                <p:outputLabel value="Preço R$:"/>
-	                <p:inputNumber value="#{AccessBean.newPart.name}" size="55"/>
+	                	<p:inputNumber value="#{PartBean.newPart.price}" size="55"/>
 	                <p:outputLabel value="Data da troca:"/>
-	                <p:inputMask value="#{AccessBean.newPart.name}" mask="99/99/9999" size="55" placeholder="Ex: 30/04/2020"/>
-	                <p:outputLabel value="Placa do veículo:"/>
-	        
-	        <p:selectOneMenu value="#{AccessBean.newPart.vehicle.license}">
-				<f:selectItem itemLabel="Selecione..." itemValue="" />
-				<f:selectItems value="#{AccessBean.registeredVehicles}" var="placa"	itemLabel="#{vehicle.license}" itemValue="#{vehicle.license}" />
-			</p:selectOneMenu>
+	                	<p:inputMask value="#{PartBean.replaceDate}" mask="99/99/9999" size="55" placeholder="Ex: 30/04/2020"/>
+	                <p:outputLabel value="Veículo:"/>
+	        		<p:selectOneMenu value="#{PartBean.license}">
+						<f:selectItem itemLabel="Selecione..." itemValue="" />
+						<f:selectItems value="#{PartBean.registeredVehicle}" var="vehicles"	itemLabel="#{vehicles.modelName}" itemValue="#{vehicles.license}" />
+					</p:selectOneMenu>
 			</h:panelGrid>   
       <p:separator/>
 	            
         </p:tab>
     </p:tabView>
        <p:panelGrid  style="border:0px">
-         <p:commandButton value="Salvar" update="@form" actionListener="#{AccessBean.registerPart}"/>
+         <p:commandButton value="Salvar" update="@form" actionListener="#{PartBean.registerPart}"/>
          <p:commandButton value="Cancelar" type="reset"/>
        </p:panelGrid>	
     </h:form>
