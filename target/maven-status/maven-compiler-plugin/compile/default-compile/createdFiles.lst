@@ -15,5 +15,4 @@ service\GrowlViewBean.class
 entities\User.class
 control\VehicleBean.class
 dao\VehicleDaoImpl.class
-control\AccessBean.class
 entities\Part.class

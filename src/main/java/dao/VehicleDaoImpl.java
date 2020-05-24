@@ -190,8 +190,9 @@ public class VehicleDaoImpl implements VehicleDao {
 				vehicle.setBrand(rs.getString("BRAND"));
 				vehicle.setModelName(rs.getString("MODELNAME"));
 				vehicle.setNickname(rs.getString("NICKNAME"));
-
-				listVehicles.add(vehicle);
+				if (vehicle.getLicense() != null) {
+					listVehicles.add(vehicle);
+				}
 			}
 
 			ps.close();

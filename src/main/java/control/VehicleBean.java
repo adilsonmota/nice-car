@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
 
 import dao.VehicleDao;
 import dao.VehicleDaoImpl;
@@ -15,7 +15,7 @@ import service.GrowlViewBean;
 import util.SessionUtil;
 
 @ManagedBean(name = "VehicleBean")
-@SessionScoped
+@RequestScoped
 public class VehicleBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -33,7 +33,6 @@ public class VehicleBean implements Serializable {
 		this.registeredVehicles = new ArrayList<Vehicle>();
 		this.newVehicle = new Vehicle();
 		this.vehicleDao = new VehicleDaoImpl();
-		
 		this.currentUser = new User();
 	}
 	
@@ -41,12 +40,10 @@ public class VehicleBean implements Serializable {
 	public String registerVehicle() {
 
 		boolean msg = true;
-		
+
 		Object obj = SessionUtil.getParam("logged");
 
 		currentUser  = (User) obj;
-		
-		System.out.println(currentUser.getEmail());
 		
 		this.registeredVehicles = this.vehicleDao.findAll();
 
@@ -76,11 +73,7 @@ public class VehicleBean implements Serializable {
 	public Vehicle getNewVehicle() {
 		return newVehicle;
 	}
-
-
 	public void setNewVehicle(Vehicle newVehicle) {
 		this.newVehicle = newVehicle;
 	}
-
-
 }

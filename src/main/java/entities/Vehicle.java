@@ -4,38 +4,19 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
-@Entity
-@Table(name="TB_VEHICLE")
 public class Vehicle implements Serializable{
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@Column(name="LICENSE_VEHICLE", nullable = false)
 	private String license;
 	
-	@Column(name="BRAND", nullable = false)
 	private String brand;
 	
-	@Column(name="MODELNAME", nullable = false)
 	private String modelName;
 	
-	@ManyToOne
-	@JoinColumn(name = "CPF_USER")
 	private User owner;
 	
-	@OneToMany(mappedBy = "vehicle", cascade = CascadeType.ALL)
 	private List<Part> parts = new ArrayList<Part>();
 	
-	@Column(name="NICKNAME")
 	private String nickname;
 	
 	
@@ -100,5 +81,4 @@ public class Vehicle implements Serializable{
 		
 		return tot;
 	}
-	
 }

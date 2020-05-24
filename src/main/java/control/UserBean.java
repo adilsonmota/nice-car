@@ -52,6 +52,7 @@ public class UserBean implements Serializable {
 			message.saveMessage(true);
 			return "login.xhtml";
 		} else {
+			this.newUser = new User();
 			message.setErrorMessage("CPF ou email já está em uso!");
 			message.saveMessage(false);
 		}
@@ -62,10 +63,7 @@ public class UserBean implements Serializable {
 	public User getNewUser() {
 		return newUser;
 	}
-
-
 	public void setNewUser(User newUser) {
 		this.newUser = newUser;
 	}
-
 }

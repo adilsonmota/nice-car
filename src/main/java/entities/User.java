@@ -4,32 +4,17 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
-@Entity
-@Table(name="TB_USER")
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@Column(name="CPF", nullable = false)
 	private String cpf;
 	
-	@Column(name="EMAIL", nullable = false)
 	private String email;
 	
-	@Column(name="PASSWORD", nullable = false)
 	private String password;
 	
-	@Column(name="NAME")
 	private String name;
 
-	@OneToMany(mappedBy="owner", cascade = CascadeType.ALL)
 	private List<Vehicle> vehicles = new ArrayList<Vehicle>();
 
 	
@@ -73,9 +58,4 @@ public class User implements Serializable {
 	public List<Vehicle> getVehicles() {
 		return vehicles;
 	}
-/*
-	public void setVehicles(List<Vehicle> vehicles) {
-		this.vehicles = vehicles;
-	}
-*/	
 }

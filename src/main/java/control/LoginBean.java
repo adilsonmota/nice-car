@@ -71,7 +71,6 @@ public class LoginBean implements Serializable {
 	public String getUsrLogin() {
 		return usrLogin;
 	}
-
 	public void setUsrLogin(String usrLogin) {
 		this.usrLogin = usrLogin;
 	}
@@ -79,9 +78,7 @@ public class LoginBean implements Serializable {
 	public String getPswLogin() {
 		return pswLogin;
 	}
-
 	public void setPswLogin(String pswLogin) {
 		this.pswLogin = pswLogin;
 	}
-
 }

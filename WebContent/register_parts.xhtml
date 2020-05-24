@@ -22,9 +22,9 @@
 	                <p:outputLabel value="Data da troca:"/>
 	                	<p:inputMask value="#{PartBean.replaceDate}" mask="99/99/9999" size="55" placeholder="Ex: 30/04/2020"/>
 	                <p:outputLabel value="Veículo:"/>
-	        		<p:selectOneMenu value="#{PartBean.license}">
+	        		<p:selectOneMenu value="#{PartBean.license}" required="true">
 						<f:selectItem itemLabel="Selecione..." itemValue="" />
-						<f:selectItems value="#{PartBean.registeredVehicle}" var="vehicles"	itemLabel="#{vehicles.modelName}" itemValue="#{vehicles.license}" />
+						<f:selectItems value="#{PartBean.registeredVehicle}" var="vehicles"	itemLabel="#{vehicles.modelName}" />
 					</p:selectOneMenu>
 			</h:panelGrid>   
       <p:separator/>
