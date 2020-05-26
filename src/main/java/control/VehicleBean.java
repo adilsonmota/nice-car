@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 
 import dao.VehicleDao;
 import dao.VehicleDaoImpl;
@@ -15,12 +15,16 @@ import service.GrowlViewBean;
 import util.SessionUtil;
 
 @ManagedBean(name = "VehicleBean")
-@RequestScoped
+@SessionScoped
 public class VehicleBean implements Serializable {
 	private static final long serialVersionUID = 1L;
-
+	
+	private String keyword;
+	private String license;
+	
 	private Vehicle newVehicle;
 	private List<Vehicle> registeredVehicles;
+	List<Vehicle> myVehicles;
 	private VehicleDao vehicleDao;
 	
 	private User currentUser;
@@ -31,21 +35,23 @@ public class VehicleBean implements Serializable {
 		this.message = new GrowlViewBean();
 
 		this.registeredVehicles = new ArrayList<Vehicle>();
+		this.myVehicles = new ArrayList<Vehicle>();
 		this.newVehicle = new Vehicle();
 		this.vehicleDao = new VehicleDaoImpl();
 		this.currentUser = new User();
-	}
-	
-
-	public String registerVehicle() {
-
-		boolean msg = true;
 
 		Object obj = SessionUtil.getParam("logged");
 
 		currentUser  = (User) obj;
 		
 		this.registeredVehicles = this.vehicleDao.findAll();
+		
+	}
+	
+
+	public String registerVehicle() {
+
+		boolean msg = true;
 
 		for (Vehicle listVehicles : registeredVehicles) {
 			if (listVehicles.getLicense().equals(newVehicle.getLicense())) {
@@ -70,10 +76,44 @@ public class VehicleBean implements Serializable {
 	}
 
 
+	public void search() {
+		this.myVehicles = this.vehicleDao.findByOwner(currentUser,keyword);
+	}
+	
+	
+	
 	public Vehicle getNewVehicle() {
 		return newVehicle;
 	}
 	public void setNewVehicle(Vehicle newVehicle) {
 		this.newVehicle = newVehicle;
 	}
+
+
+	public String getKeyword() {
+		return keyword;
+	}
+
+
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+
+
+	public List<Vehicle> getMyVehicles() {
+		return myVehicles;
+	}
+
+
+	public String getLicense() {
+		return license;
+	}
+
+
+	public void setLicense(String license) {
+		this.license = license;
+	}
+	
+	
+	
 }

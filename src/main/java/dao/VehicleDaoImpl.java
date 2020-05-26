@@ -165,10 +165,10 @@ public class VehicleDaoImpl implements VehicleDao {
 	}
 
 	@Override
-	public List<Vehicle> findByOwner(User owner) {
+	public List<Vehicle> findByOwner(User owner, String keyword) {
 
 		String sql = "SELECT LICENSE, BRAND, MODELNAME, NICKNAME FROM TB_USER U "
-				+ "LEFT JOIN TB_VEHICLE V ON (U.CPF = V.CPF_USER) WHERE EMAIL = ?";
+				+ "LEFT JOIN TB_VEHICLE V ON (U.CPF = V.CPF_USER) " + inCondition(owner, keyword);
 
 		List<Vehicle> listVehicles = new ArrayList<Vehicle>();
 
@@ -179,7 +179,7 @@ public class VehicleDaoImpl implements VehicleDao {
 
 			PreparedStatement ps = conn.prepareStatement(sql);
 
-			ps.setString(1, owner.getEmail());
+//			ps.setString(1, owner.getEmail());
 
 			ResultSet rs = ps.executeQuery();
 
@@ -194,7 +194,6 @@ public class VehicleDaoImpl implements VehicleDao {
 					listVehicles.add(vehicle);
 				}
 			}
-
 			ps.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -202,4 +201,23 @@ public class VehicleDaoImpl implements VehicleDao {
 		return listVehicles;
 	}
 
+	public String inCondition(User user, String keyword) {
+		
+		String cond = " ";
+		
+		if (keyword != null) {
+		
+		cond = "WHERE EMAIL = '"+user.getEmail()+"' AND "
+				+ "(V.MODELNAME LIKE '%"+keyword+"%' OR "
+				+ "V.BRAND LIKE '%"+keyword+"%' OR "
+				+ "V.NICKNAME LIKE '%"+keyword+"%')";
+		return cond;
+		} else {
+			cond = "WHERE EMAIL = '" + user.getEmail() + "'";
+		}
+		return cond;
+	}
+	
+	
+	
 }

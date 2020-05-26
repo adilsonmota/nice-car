@@ -12,5 +12,5 @@ public interface VehicleDao {
 	public void remove(String license);
 	public Vehicle findAvehicle(String license);
 	public List<Vehicle> findAll();
-	public List<Vehicle> findByOwner(User owner);
+	public List<Vehicle> findByOwner(User user, String keyword);
 }

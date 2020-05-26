@@ -19,7 +19,7 @@
 	                <p:outputLabel value="CPF:"/>
 	                	<p:inputMask value="#{UserBean.newUser.cpf}" mask="999.999.999-99" placeholder="Ex: 123.456.789-00 " size="55" required="true"/>
 	                <p:outputLabel value="Email: (username)"/>
-	                	<p:inputText value="#{UserBean.newUser.email}" size="55" placeholder="Ex: email@dominio.com" required="true"/>
+	                	<p:inputText value="#{UserBean.newUser.email}" size="55" placeholder="Ex: email@dominio.com" required="true" style="text-transform:lowercase"/>
 	                <p:outputLabel value=" Senha:"/>
              		<p:password id="psw1" match="psw2" required="true" feedback="true" size="55"/>
              		<p:outputLabel value=" Confirma senha:"/>

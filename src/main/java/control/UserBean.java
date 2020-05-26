@@ -14,6 +14,9 @@ import service.GrowlViewBean;
 
 @ManagedBean(name = "UserBean")
 @SessionScoped
+/*
+*	a sessão expira após um time "X"
+*/
 public class UserBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	

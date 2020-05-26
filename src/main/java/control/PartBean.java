@@ -21,9 +21,11 @@ import util.SessionUtil;
 
 @ManagedBean(name = "PartBean")
 @RequestScoped
-/*
- * 
- */
+
+/*	request scoped possibilita um novo carregamento da lista de veículos 
+*	a cada instanciamento da tela de cadastro de peça ("PartBean")
+*/
+
 public class PartBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -60,7 +62,7 @@ public class PartBean implements Serializable {
 		Object obj = SessionUtil.getParam("logged");
 		currentUser = (User) obj;
 		
-		this.registeredVehicle = vehicleDao.findByOwner(currentUser);
+		this.registeredVehicle = vehicleDao.findByOwner(currentUser, null);
 		
 	}
 

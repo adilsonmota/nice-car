@@ -24,7 +24,7 @@
 	                <p:outputLabel value="Veículo:"/>
 	        		<p:selectOneMenu value="#{PartBean.license}" required="true">
 						<f:selectItem itemLabel="Selecione..." itemValue="" />
-						<f:selectItems value="#{PartBean.registeredVehicle}" var="vehicles"	itemLabel="#{vehicles.modelName}" />
+						<f:selectItems value="#{PartBean.registeredVehicle}" var="vehicles"	itemLabel="#{vehicles.modelName}" itemValue="#{vehicles.license}"/>
 					</p:selectOneMenu>
 			</h:panelGrid>   
       <p:separator/>
