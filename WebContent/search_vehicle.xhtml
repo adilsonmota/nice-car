@@ -6,73 +6,80 @@
 
 	<ui:define name="corpo">
 	
-	<title>Alterar Veículo</title>
-<h:form>
-	<h2>Buscar</h2>
-	<p:tabView>	
-	<p:tab title="Veículo">
+		<title>Alterar Veículo</title>
+	<h:form>		
+		<p:growl id="growl" showDetail="true" sticky="true" />    
+		<h2>Buscar</h2>
+					<p:separator/>
 				
-	<p:separator />
-	
-		<h:panelGrid columns="3" cellpadding="2">
-		
-			<p:outputLabel value="Buscar:" />
-				<p:inputText value="#{VehicleBean.keyword}" size="72"
-					placeholder="digite algum dado do veículo ou vazio para exibir todos" />
-			<p:commandButton value="Ok" update="@form"	actionListener="#{VehicleBean.search}" />
+					<h:panelGrid columns="3" cellpadding="2">
+					
+						<p:outputLabel value="Buscar:" />
+							<p:inputText value="#{VehicleBean.keyword}" size="72" placeholder="digite algum dado do veículo ou vazio para exibir todos" />
+						<p:commandButton value="Ok" update="@form" actionListener="#{VehicleBean.search}" />
+						
+					</h:panelGrid>
+					<p:separator/>
+					
+					<p:dataTable var="vehicles" value="#{VehicleBean.myVehicles}" selection="#{VehicleBean.selectedVehicle}" rowKey="#{vehicles.license}" style="text-align:center">
+					
+						<p:column headerText="Montadora">
+							<h:outputText value="#{vehicles.brand}" />
+						</p:column>
+						
+						<p:column headerText="Modelo">
+							<h:outputText value="#{vehicles.modelName}" />
+						</p:column>
+						
+						<p:column headerText="Licença">
+							<h:outputText value="#{vehicles.license}" />
+						</p:column>
+						
+						<p:column headerText="Apelido">
+							<h:outputText value="#{vehicles.nickname}" />
+						</p:column>
+				
+						<p:column headerText="Selecione" selectionMode="single">
+							<h:outputText value="" />
+						</p:column>
 			
-		</h:panelGrid>
-		
-		<p:separator />
-		
-		<p />
-		
-		<p:dataTable var="vehicles" value="#{VehicleBean.myVehicles}" selection="#{VehicleBean.newVehicle}" rowKey="#{vehicles.license}" style="text-align:center">
-			<p:column headerText="Montadora">
-				<h:outputText value="#{vehicles.brand}" />
-			</p:column>
-			<p:column headerText="Modelo">
-				<h:outputText value="#{vehicles.modelName}" />
-			</p:column>
-			<p:column headerText="Licença">
-				<h:outputText value="#{vehicles.license}" />
-			</p:column>
-			<p:column headerText="Apelido">
-				<h:outputText value="#{vehicles.nickname}" />
-			</p:column>
-			
-			<p:column headerText="Editar" selectionMode="single">
-				<h:outputText value="" />
-			</p:column>
-			
-		</p:dataTable>
-</p:tab>
-		<p:separator/>
-<p:tab title="Atualizar Dados">
-     	<p:separator/>
-             <h:panelGrid columns="2" cellpadding="3">
-	                <p:outputLabel value="Marca"/>
-	                	<p:inputText value="#{VehicleBean.newVehicle.brand}" size="55" required="true"/>
-	                <p:outputLabel value="Modelo:" />
-	                	<p:inputText value="#{VehicleBean.newVehicle.modelName}" size="55" required="true"/>
-	                <p:outputLabel value="Apelido" />
-	                	<p:inputMask value="#{VehicleBean.newVehicle.nickname}" size="55"/>
-                	<p:outputLabel value="Placa do veículo:"/>
-	                	<p:inputMask value="#{VehicleBean.newVehicle.license}" size="55" readonly="true"/>
-	            </h:panelGrid>   
+					</p:dataTable>
+					
+					<p:separator/>
+					
+					<p/>
+				
+					<h:panelGrid columns="2" cellpadding="3">
+					
+						<p:outputLabel value="Marca" />
+							<p:inputText value="#{VehicleBean.brand}" size="55" />
+						<p:outputLabel value="Modelo:" />
+							<p:inputText value="#{VehicleBean.modelName}" size="55"  />
+						<p:outputLabel value="Apelido" />
+							<p:inputText value="#{VehicleBean.nickname}" size="55" />
+						<p:outputLabel value="Placa do veículo:" />
+							<p:inputText value="#{VehicleBean.license}" size="55" readonly="true" />
+						
+					</h:panelGrid>
 
-		<p:panelGrid  style="border:0px">
-        	<p:commandButton value="Salvar" update="@form" actionListener="#{VehicleBean.search}"/>
-        	
-       	</p:panelGrid>
-       	<p:separator/>	
-		<h:panelGrid columns="1" cellpadding="2">
-			<p:outputLabel value="Deletar este carro e suas peças:" />
-        	<p:commandButton value="Excluir" update="@form" actionListener="#{VehicleBean.search}"/>
+					<h:panelGrid columns="2" cellpadding="1">
+						<p:commandButton value="Editar" update="@form" actionListener="#{VehicleBean.selectVehicle}"/>
+						<p:commandButton value="Salvar" update="@form" actionListener="#{VehicleBean.updateVehicle}"/>
+						
+					</h:panelGrid>
+					
+					<p:separator/>
+					
+					<h:panelGrid columns="2" cellpadding="1">
+					
+						<p:commandButton value="Excluir" update="@form" actionListener="#{VehicleBean.deleteVehicle}"/>
+						<p:outputLabel value="Deletar este veículo e suas peças!" />
+						
 
-		</h:panelGrid>
-      </p:tab>
-</p:tabView>
-		</h:form>
+					</h:panelGrid>		
+
+</h:form>
 	</ui:define>
+	
 </ui:composition>
+

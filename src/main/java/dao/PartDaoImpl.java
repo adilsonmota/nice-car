@@ -1,5 +1,6 @@
 package dao;
 
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,7 +13,8 @@ import entities.Part;
 import entities.Vehicle;
 import util.JpaUtil;
 
-public class PartDaoImpl implements PartDao {
+public class PartDaoImpl implements PartDao, Serializable {
+	private static final long serialVersionUID = 1L;
 
 	public void insert(Part part) {
 		

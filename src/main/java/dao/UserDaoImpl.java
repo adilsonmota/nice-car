@@ -1,5 +1,6 @@
 package dao;
 
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,7 +12,8 @@ import entities.User;
 import entities.Vehicle;
 import util.JpaUtil;
 
-public class UserDaoImpl implements UserDao {
+public class UserDaoImpl implements UserDao, Serializable {
+	private static final long serialVersionUID = 1L;
 
 	public void insert(User user) {
 		

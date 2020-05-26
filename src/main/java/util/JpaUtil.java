@@ -1,10 +1,12 @@
 package util;
 
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class JpaUtil {
+public class JpaUtil implements Serializable{
+	private static final long serialVersionUID = 1L;
 
 	public static Connection getConexao() throws SQLException {
 

@@ -15,13 +15,13 @@
      <p:separator/>
          <h:panelGrid columns="2" cellpadding="3">
             <p:outputLabel value="Marca:"/>
-            	<p:inputText value="#{VehicleBean.newVehicle.brand}" size="55" placeholder="Ex: Ford"/>
+            	<p:inputText value="#{VehicleBean.vehicle.brand}" size="55" placeholder="Ex: Ford"/>
             <p:outputLabel value="Modelo:"/>
-            	<p:inputText value="#{VehicleBean.newVehicle.modelName}" size="55" placeholder="Ex: Mustang Shelby GT500" required="true"/>
+            	<p:inputText value="#{VehicleBean.vehicle.modelName}" size="55" placeholder="Ex: Mustang Shelby GT500" required="true"/>
             <p:outputLabel value="Placa do veículo:"/>
-            	<p:inputMask value="#{VehicleBean.newVehicle.license}" mask="aaa-9*99" size="55" placeholder="Ex: ABC-1B23" style="text-transform:uppercase" required="true"/>
+            	<p:inputMask value="#{VehicleBean.vehicle.license}" mask="aaa-9*99" size="55" placeholder="Ex: ABC-1B23" style="text-transform:uppercase" required="true"/>
             <p:outputLabel value="Apelido:"/>
-            	<p:inputText value="#{VehicleBean.newVehicle.nickname}" size="55"/>
+            	<p:inputText value="#{VehicleBean.vehicle.nickname}" size="55"/>
          </h:panelGrid>   
       <p:separator/>
 	            
